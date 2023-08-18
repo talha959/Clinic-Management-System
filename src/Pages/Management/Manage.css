@@ -74,7 +74,8 @@ padding-right: 0px; */
     cursor: pointer;
   }
   .svgs{
-    margin-top: 10px;
+    margin-top: 0px;
+    border-radius: 50%;
   }
   .lab{
     padding-left: 10px;
@@ -82,6 +83,8 @@ padding-right: 0px; */
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
+    display: flex;
+    flex-wrap: wrap;
   }
   .selection{
     display: flex;

@@ -9,6 +9,7 @@ const Logout = ({ setOpenmodal }) => {
   };
 
   const logout = () => {
+    localStorage.removeItem('accessToken');
     navigate('/login');
   };
 

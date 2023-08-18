@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import UserContext from '../../../UserContext';
 import { GoogleLogin,GoogleOAuthProvider } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+// import Privateroute from './Privateroute';
 const Form = () => {
   const message=useContext(UserContext);
   const [name, setName] = useState('');
@@ -18,6 +19,7 @@ const Form = () => {
   //   alert('Try Again');
   // }
 
+  
   const handleSubmitt = () => {
     if (name === '') {
       alert('Username is Empty');
@@ -48,8 +50,8 @@ const Form = () => {
   
 
   return (
+    
     <div>
-     
       <div className='boxx'>
         {/* <p>{message}</p> */}
         <h1 className='Reg-head'>Login Yourself</h1><br />
@@ -113,9 +115,13 @@ const Form = () => {
            shape='circle'
            onSuccess={(credentialResponse) => {
             alert('Google login successful');
-            var decoded = jwt_decode(credentialResponse.credential);
-            localStorage.setItem('decodedToken', JSON.stringify(decoded));
-            navigate(message);
+var decoded = jwt_decode(credentialResponse.credential);
+var token = credentialResponse.credential; // Assuming the token is directly accessible here
+localStorage.setItem('decodedToken', JSON.stringify(decoded));
+localStorage.setItem('accessToken', token);
+
+navigate(message);
+
         }}
         
           
